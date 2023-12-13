@@ -1,0 +1,22 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}Notes list{% endblock title %}
+
+{% block content %}
+{% if notes %}
+<div class="main-container">
+    <div class="list-wrap">
+        <h1>Notes</h1>
+    <hr/>
+        <ul class="list">
+        {% for note in notes %}
+            <li class="list-item">
+                <p class="note-title">{{ note.title }}</p>
+                <span class="note-description">{{ note.description }}</span>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+</div>
+{% endblock content %}

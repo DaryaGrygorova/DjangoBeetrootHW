@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href='{% static 'notes\my_style.css' %}'/>
+
+    <title>{% block title %}My Django App{% endblock title %}</title>
+
+</head>
+<body>
+  <main>
+    {% block content %}
+    
+    {% endblock content %}
+  </main>
+</body>
+</html>
