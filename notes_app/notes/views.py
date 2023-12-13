@@ -1,24 +1,10 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.template import loader
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
-NOTES = [
-    {
-        'id': 1,
-        'title': "Note 1",
-        'description': "Do something"
-    },
-    {
-        'id': 2,
-        'title': "Note 2",
-        'description': "Do another something"
-    },
-    {
-        'id': 3,
-        'title': "Note 3",
-        'description': "Just Do It!"
-    }
-]
+from .models import Note
+
 
 def notes(request):
-    return render(request, 'notes/notes.html', {'notes': NOTES})
+    notes_list = Note.objects.order_by('-create_at')
+    return render(request, 'notes/notes.html', {'notes': notes_list})
