@@ -1,0 +1,75 @@
+body {
+    background-color: #dbdbdb;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100vw - 20px);
+    max-width: 1000px;
+    max-height: calc(100vh - 20px);
+}
+p {
+    margin: 5px;
+}
+h1 {
+    text-align: center;
+}
+
+.list-wrap {
+    flex-grow: 1;
+    padding: 15px 20px;
+    max-width: 560px;
+    border-radius: 15px;
+    box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+                10px 10px 15px rgba(70,70,70,0.12);
+}
+
+.note-title {
+    font-weight: 700;
+}
+
+.list-item {
+    margin-top: 10px;
+    border-bottom: 1px solid darkgrey;
+}
+
+.flex {
+    display: flex;
+}
+.gap-10 {
+    gap: 10px;
+}
+.align-center {
+    align-items: center;
+}
+.justify-between {
+    justify-content: space-between;
+}
+
+.note-form {
+}
+
+.note-form label {
+    min-width: 120px;
+    margin-right: 20px;
+}
+
+.note-form input,
+.note-form textarea {
+    padding: 5px 15px;
+    border-radius: 8px;
+    border-color: transparent;
+    width: calc(100% - 30px);
+    box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+           inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+}
+
+.note-form input[type='checkbox'] {
+    width: fit-content;
+}
+
+.note-form input[type='submit'] {
+    width: 100%;
+}

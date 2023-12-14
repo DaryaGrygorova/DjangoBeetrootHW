@@ -1,0 +1,25 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}Note{% endblock title %}
+
+{% block content %}
+<div class="main-container">
+    <div class="list-wrap">
+        <h1>{{ note.title }}</h1>
+        <hr/>
+        <div class="flex gap-10 align-center justify-between">
+            <p>Category: <b>{{ note.category }}</b></p>
+            <p>Reminder: <b>{% firstof note.reminder '-' %}</b></p>
+            <p>Create at: <b>{{ note.create_at|date:'d.m.y' }}</b></p>
+            <div class="flex gap-10 align-center">
+               <a href="{% url 'update-note' note.id %}">Update</a>
+               <a href="{% url 'delete-note' note.id %}">Delete</a>
+            </div>
+        </div>
+        <hr/>
+        <div class="list">
+            <p>{{ note.text }}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

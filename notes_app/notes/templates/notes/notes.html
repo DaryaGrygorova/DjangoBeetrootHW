@@ -8,14 +8,31 @@
     <div class="list-wrap">
         <h1>Notes</h1>
     <hr/>
-        <ul class="list">
+    <div class="flex gap-10 align-center justify-between">
+        <a href="{% url 'create-note' %}">Add note</a>
+        <a href="{% url 'notes' %}?sort=category">Sort by category</a>
+        <a href="{% url 'notes' %}?sort=create_at">Sort by date</a>
+        <form method="GET">
+            {% csrf_token %}
+            <input type='text' name="search-area" placeholder="Search..." value="{{ search_input }}" autofocus/>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+        <div class="list">
         {% for note in notes %}
-            <li class="list-item">
-                <p class="note-title">{{ note.category }}: {{ note.title }}</p>
-                <span class="note-description">{{ note.text }}</span>
-            </li>
+            <div class="list-item">
+                <div class="flex gap-10 align-center justify-between">
+                    <p class="note-title">{{ note.category }}: {{ note.title }}</p>
+                    <div class="flex gap-10 align-center">
+                       <a href="{% url 'note-details' note.id %}">View</a>
+                       <a href="{% url 'update-note' note.id %}">Update</a>
+                       <a href="{% url 'delete-note' note.id %}">Delete</a>
+                    </div>
+                </div>
+{#                <span class="note-description">{{ note.text }}</span>#}
+            </div>
         {% endfor %}
-        </ul>
+        </div>
     </div>
 {% endif %}
 </div>

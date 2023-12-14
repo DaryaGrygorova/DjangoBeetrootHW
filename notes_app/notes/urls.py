@@ -1,7 +1,10 @@
-from django.urls import path, include
-
-from .views import notes
+from django.urls import path
+from .views import NotesListView, CreateNoteView, UpdateNoteView, DeleteNoteView, NoteDetails
 
 urlpatterns = [
-    path("", notes, name='notes'),
+    path("", NotesListView.as_view(), name='notes'),
+    path("note/<int:pk>/", NoteDetails.as_view(), name='note-details'),
+    path("create/", CreateNoteView.as_view(), name='create-note'),
+    path("update/<int:pk>/", UpdateNoteView.as_view(), name='update-note'),
+    path("delete/<int:pk>/", DeleteNoteView.as_view(), name='delete-note'),
 ]
