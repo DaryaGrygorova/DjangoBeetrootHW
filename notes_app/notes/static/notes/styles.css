@@ -9,6 +9,8 @@ body {
     width: calc(100vw - 20px);
     max-width: 1000px;
     max-height: calc(100vh - 20px);
+    margin-left: auto;
+    margin-right: auto;
 }
 p {
     margin: 5px;
